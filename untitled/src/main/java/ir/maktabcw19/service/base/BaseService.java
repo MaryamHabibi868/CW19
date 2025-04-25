@@ -23,7 +23,4 @@ public interface BaseService
 
     Boolean existsById(ID id);
 
-    void beginTransaction();
-
-    void commitTransaction();
 }

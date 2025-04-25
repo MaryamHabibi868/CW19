@@ -64,13 +64,4 @@ public class BaseServiceImpl
         return repository.existsById(id);
     }
 
-    @Override
-    public void beginTransaction() {
-
-    }
-
-    @Override
-    public void commitTransaction() {
-
-    }
 }
