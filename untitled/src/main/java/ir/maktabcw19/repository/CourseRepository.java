@@ -1,23 +1,12 @@
 package ir.maktabcw19.repository;
 
 import ir.maktabcw19.entity.Course;
+import ir.maktabcw19.repository.base.CrudRepository;
 
 import java.util.Set;
 
-public interface CourseRepository {
+public interface CourseRepository
+        extends CrudRepository<Course, Integer> {
 
-    void create(Course course);
-
-    void update(Course course);
-
-    void delete(Course course);
-
-    Course findById(int id);
-
-    Course findByNumberCourse(int numberCourse);
-
-    Set<Course> findAll();
-
-    Boolean containsCourse(Course course);
 
 }
