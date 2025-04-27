@@ -30,7 +30,7 @@ public class CourseServiceImpl
 
     @Override
     public List<Lesson> findLessonByCourse(Integer numberCourse) {
-        lessonService.findAll()
+        lessonService.findAll();
         return List.of();
     }
 }

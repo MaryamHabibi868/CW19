@@ -2,6 +2,7 @@ package ir.maktabcw19.service.base;
 
 import ir.maktabcw19.entity.BaseEntity;
 import ir.maktabcw19.repository.base.CrudRepository;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;

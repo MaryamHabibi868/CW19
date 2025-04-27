@@ -19,9 +19,12 @@ public class LessonServiceImpl
     public LessonServiceImpl(LessonRepository repository) {
         super(repository);
     }
+   /* public void setGrade(){
+    }*/
 
     @Override
     public List<Lesson> showLessonList(Integer numberCourse) {
         return repository.findAll();
     }
+
 }

@@ -12,6 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+
 public class Lesson extends BaseEntity {
 
     private String name;
@@ -19,12 +20,14 @@ public class Lesson extends BaseEntity {
     private Double grade;
 
     private int capacity;
+    private int unit;
 
     @ManyToOne
     private Teacher teacher;
 
     @ManyToOne
     private Course course;
+
 
 
 
