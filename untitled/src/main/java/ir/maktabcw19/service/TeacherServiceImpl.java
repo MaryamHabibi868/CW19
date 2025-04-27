@@ -9,5 +9,4 @@ public class TeacherServiceImpl extends BaseServiceImpl<Teacher,
     public TeacherServiceImpl(TeacherRepository repository) {
         super(repository);
     }
-    public
 }
