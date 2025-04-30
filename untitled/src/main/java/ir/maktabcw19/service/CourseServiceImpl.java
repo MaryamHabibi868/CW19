@@ -7,6 +7,7 @@ import ir.maktabcw19.service.base.BaseServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public class CourseServiceImpl
         extends BaseServiceImpl<Course, Integer, CourseRepository>
@@ -20,10 +21,10 @@ public class CourseServiceImpl
     }
 
     @Override
-    public Course findByNumberCourse(Integer number) {
+    public Optional<Course> findByNumberCourse(Integer number) {
         Optional<Course> find = repository.findByNumberCourse(number);
         if (find.isPresent()) {
-            return find.get();
+            return find;
         }
         throw new RuntimeException("Course not found");
     }
@@ -33,4 +34,5 @@ public class CourseServiceImpl
         lessonService.findAll();
         return List.of();
     }
+
 }

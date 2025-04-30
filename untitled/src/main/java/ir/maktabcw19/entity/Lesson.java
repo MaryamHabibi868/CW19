@@ -21,14 +21,10 @@ public class Lesson extends BaseEntity {
 
     private int capacity;
     private int unit;
-
-    @ManyToOne
-    private Teacher teacher;
-
     @ManyToOne
     private Course course;
-
-
+    @ManyToOne
+    private Teacher teacher;
 
 
 }

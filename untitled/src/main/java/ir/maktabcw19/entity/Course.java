@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Course extends BaseEntity{
+public class Course extends BaseEntity {
 
     private int numberCourse;
 
@@ -24,10 +25,10 @@ public class Course extends BaseEntity{
     private LocalDate endDate;
 
     @OneToMany(mappedBy = "course")
-    private Set<Lesson> lessons;
+    private List<Lesson> lessons;
 
     private Double score;
 
-    @ManyToMany (mappedBy = "courses")
-    private Set<Student> students;
+    @ManyToOne
+    private Student student;
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface CourseService
         extends BaseService<Course, Integer> {
 
-    Course findByNumberCourse(Integer number);
+    Optional<Course> findByNumberCourse(Integer number);
 
     List<Lesson> findLessonByCourse (Integer numberCourse);
 }
