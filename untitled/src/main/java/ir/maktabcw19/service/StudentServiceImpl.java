@@ -12,14 +12,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class StudentServiceImpl extends BaseServiceImpl<Student, Integer, StudentRepository> implements StudentService {
+public class StudentServiceImpl
+        extends BaseServiceImpl<Student, Integer, StudentRepository>
+        implements StudentService {
+
     public StudentServiceImpl(StudentRepository repository, CourseService courseService) {
         super(repository);
         this.courseService = courseService;
     }
 
     CourseService courseService;
-    EntityManager em = ApplicationContext.getInstance().getEntityManager();
 
 //    public List<Lesson> showAllLessonsByStudentId(Integer studentId, Integer numberOfCourse) {
 //        List<Lesson> lessons = em.createQuery("from Lesson l join Course c " +
@@ -30,13 +32,17 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, Integer, Studen
 //    }
 
     public Student showProfile(Integer studentId) {
-        Student student = em.find(Student.class, studentId);
-
-        Student student1 = new Student();
-        student1.setFirstName(student.getFirstName());
-        student1.setLastName(student.getLastName());
-        student1.setCourses(student.getCourses());
-        return student1;
+        Optional<Student> student = repository.findById(studentId);
+        return student.orElseThrow(() ->
+                new RuntimeException(" Student not found"));
+        /*if (student.isPresent()) {
+            Student student1 = new Student();
+            student1.setFirstName(student.get().getFirstName());
+            student1.setLastName(student.get().getLastName());
+            student1.setCourses(student.get().getCourses());
+            return student1;
+        }
+        throw new RuntimeException("Student not found");*/
     }
 
     public boolean addUnit(List<Lesson> lessons, Integer studentId, int numberCourse) {
